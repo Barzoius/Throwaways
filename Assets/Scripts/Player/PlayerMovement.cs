@@ -45,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
 
 
         rigidbody.velocity = new Vector3(horizontal * speed, vertical * speed, 0.0f);
-        hitpoints.text = "HP: " + 100;
+
 
     }
 

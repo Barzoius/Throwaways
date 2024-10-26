@@ -22,4 +22,23 @@ public class BaseProjectile : MonoBehaviour
         yield return new WaitForSeconds(lifeTime);
         Destroy(gameObject);
     }
+
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        if(collider.tag == "Enemy")
+        {
+            Debug.Log("Hit an enemy!");
+
+            EnemyBehaviour enemyBehaviour = collider.gameObject.GetComponent<EnemyBehaviour>();
+            if (enemyBehaviour != null)
+            {
+                enemyBehaviour.Die();
+                Destroy(gameObject);
+            }
+            else
+            {
+                Debug.LogWarning("Enemy does not have an EnemyBehaviour script attached.");
+            }
+        }
+    }
 }
