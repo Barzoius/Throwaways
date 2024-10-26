@@ -6,6 +6,7 @@ public enum EnemyState
 {
     WANDER,
     FOLLOW,
+    ATTACK,
     RETREAT,
     DIE
 };
@@ -21,6 +22,14 @@ public class EnemyBehaviour : MonoBehaviour
     private float aggroRange;
 
     [SerializeField]
+    private float attackRange = 1.0f;
+
+    [SerializeField]
+    private float attackCD = 2.0f;
+
+    private bool inAttackCD = false;
+
+    [SerializeField]
     private float speed;
 
 
@@ -30,13 +39,13 @@ public class EnemyBehaviour : MonoBehaviour
     private Vector3 randomDir;
 
 
-    // Start is called before the first frame update
+
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         switch (enemyState)
@@ -46,6 +55,9 @@ public class EnemyBehaviour : MonoBehaviour
                 break;
             case EnemyState.FOLLOW:
                 Follow();
+                break;
+            case EnemyState.ATTACK:
+                Attack();
                 break;
             case EnemyState.RETREAT:
                 Retreat();
@@ -63,6 +75,11 @@ public class EnemyBehaviour : MonoBehaviour
         else if (!inRange(aggroRange) && enemyState != EnemyState.DIE)
         {
             enemyState = EnemyState.WANDER;
+        }
+
+        if(Vector3.Distance(transform.position, player.transform.position) <= attackRange)
+        {
+            enemyState = EnemyState.ATTACK;
         }
     }
 
@@ -106,6 +123,22 @@ public class EnemyBehaviour : MonoBehaviour
                                                   speed * Time.deltaTime);
     }
 
+
+    private IEnumerator CoolDown()
+    {
+        inAttackCD = true;
+        yield return new WaitForSeconds(attackCD);
+        inAttackCD = false;
+    }
+
+    void Attack()
+    {
+        if (!inAttackCD)
+        {
+            GameManager.DamagePlayer(5);
+            StartCoroutine(CoolDown());
+        }
+    }
 
     void Retreat()
     {
