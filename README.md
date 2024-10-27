@@ -14,5 +14,25 @@ where players explore
  and character stats.
 
 -------------------------------
+## Inputs
 
+### MOVE
+- **W** - UP
+- **S** - DOWN
+- **A** - LEFT
+- **D** - RIGHT
+
+### SHOOT
+- **↑** - UP
+- **↓** - DOWN
+- **←** - LEFT
+- **→** - RIGHT
+
+-------------------------------
+
+## Observatii:
+EDITOR VERSION: 2022.3.40f1<br />
+Trebuie sa selectati SampleScene din Assets>Scenes
+
+-------------------------------
 ## Trimiteti raportul la adresa: mecca.rares@gmail.com.
