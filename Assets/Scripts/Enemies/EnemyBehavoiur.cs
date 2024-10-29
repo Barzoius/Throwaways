@@ -77,7 +77,7 @@ public class EnemyBehaviour : MonoBehaviour
             enemyState = EnemyState.WANDER;
         }
 
-        if(Vector3.Distance(transform.position, player.transform.position) <= attackRange)
+        if (Vector3.Distance(transform.position, player.transform.position) <= attackRange)
         {
             enemyState = EnemyState.ATTACK;
         }
@@ -94,7 +94,7 @@ public class EnemyBehaviour : MonoBehaviour
         yield return new WaitForSeconds(Random.Range(2f, 8f));
         randomDir = new Vector3(0, 0, Random.Range(0, 360));
         Quaternion nextRotation = Quaternion.Euler(randomDir);
-        transform.rotation = Quaternion.Lerp(transform.rotation, 
+        transform.rotation = Quaternion.Lerp(transform.rotation,
                                              nextRotation,
                                              Random.Range(0.5f, 2.5f));
         chooseDir = false;
@@ -102,14 +102,14 @@ public class EnemyBehaviour : MonoBehaviour
 
     void Wander()
     {
-        if(!chooseDir)
+        if (!chooseDir)
         {
             StartCoroutine(ChooseDirection());
         }
 
         transform.position += -transform.right * speed * Time.deltaTime;
 
-        if(inRange(aggroRange))
+        if (inRange(aggroRange))
         {
             enemyState = EnemyState.FOLLOW;
         }

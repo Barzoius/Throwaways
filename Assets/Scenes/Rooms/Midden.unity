@@ -438,14 +438,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 320155147}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30e7d85c95c207645b0631d07f5c1ccd, type: 3}
+  m_Script: {fileID: 11500000, guid: c3bd925f5ffd0c643a6a5bf5d7874f3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enemyState: 0
-  aggroRange: 5
+  aggroRange: 7
   attackRange: 1
   attackCD: 2
-  speed: 0.5
+  speed: 1
 --- !u!1 &463769152
 GameObject:
   m_ObjectHideFlags: 0
