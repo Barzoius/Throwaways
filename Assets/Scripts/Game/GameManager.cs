@@ -7,7 +7,7 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
     public static GameManager sInstance;
-
+    
     public TMP_Text textHP;
 
     public static int currentHP = 10;
