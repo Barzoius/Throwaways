@@ -1,13 +1,21 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Room;
 
 public class Room : MonoBehaviour
 {
+    [Serializable]
+    public struct RoomMetrics
+    {
+        public int width;
+        public int height;
+        public int x;
+        public int y;
+    }
 
-    public (int width, int height, int x, int y) roomMetrics;
-
-
+    public RoomMetrics roomMetrics = new RoomMetrics();
 
     void Start()
     {
@@ -15,6 +23,8 @@ public class Room : MonoBehaviour
         {
             return;
         }
+
+        //RoomsManager.instance.RegisterRoom(this);
     }
 
 
