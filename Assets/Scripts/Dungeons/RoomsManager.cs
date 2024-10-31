@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEditor.SceneManagement;
 using UnityEngine.SceneManagement;
@@ -27,9 +28,14 @@ public class RoomsManager : MonoBehaviour
 
     bool isLoaded = false;
 
+    bool hasBossRoom = false;
+    bool hasChestRoom = false;
+
+    bool updatedRooms = false;
+
     public bool CheckRoom(int x, int y)
     {
-        return rooms.Find(item => item.roomMetrics.x == x && item.roomMetrics.y == y);
+        return rooms.Find(item => item.roomMetrics.x == x && item.roomMetrics.y == y) != null;
     }
 
     public void LoadRoom(string name, int x, int y)
@@ -114,7 +120,23 @@ public class RoomsManager : MonoBehaviour
     {
         if (isLoaded) { return; }
 
-        if ( roomQueue.Count == 0) {  return; }
+        if ( roomQueue.Count == 0)
+        {
+            if(!hasBossRoom)
+            {
+                StartCoroutine(CreateBossRoom());
+            }
+            else if(hasBossRoom && !updatedRooms)
+            {
+                foreach(Room room in rooms)
+                {
+                    room.DisposeUselessDoors();
+                }
+
+                updatedRooms = true;
+            }
+            return; 
+        }
 
         roomInfo = roomQueue.Dequeue();
         isLoaded = true;
@@ -123,10 +145,42 @@ public class RoomsManager : MonoBehaviour
 
     }
 
+    private IEnumerator CreateBossRoom()
+    {
+        hasBossRoom = true;
+
+        yield return new WaitForSeconds(0.5f);
+
+        if(roomQueue.Count == 0)
+        {
+            if (rooms.Count > 0) // Check to ensure there is at least one room in the list
+            {
+                Room bossRoom = rooms[^1];
+                //Room template = new Room(bossRoom.roomMetrics.x, bossRoom.roomMetrics.y);
+                Vector2Int template = new Vector2Int(bossRoom.roomMetrics.x, bossRoom.roomMetrics.y);
+                Destroy(bossRoom.gameObject);
+
+                var removedRoom = rooms.Single(r => r.roomMetrics.x == template.x &&
+                                                    r.roomMetrics.y == template.y);
+
+                rooms.Remove(removedRoom);
+
+                LoadRoom("End", template.x, template.y);
+            }
+
+        }
+    }
+
     public void OnEntering(Room pRoom)
     {
         CameraManager.instance.room = pRoom;
         room = pRoom;
+    }
+
+
+    public Room FindRoom(int x, int y)
+    {
+        return rooms.Find(item => item.roomMetrics.x == x && item.roomMetrics.y == y);
     }
 
 }

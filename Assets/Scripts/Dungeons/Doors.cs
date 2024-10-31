@@ -5,14 +5,15 @@ using UnityEngine;
 public class Door : MonoBehaviour
 {
     // Start is called before the first frame update
-    void Start()
-    {
-        
+    public enum DoorPlacemant
+    { 
+        TOP, BOTTOM, LEFT, RIGHT
     }
 
-    // Update is called once per frame
-    void Update()
+    public enum DoorType
     {
-        
+        NORMAL_OPENED, NORMAL_CLOSED, CHEST, BOOS 
     }
+
+    public DoorPlacemant doorPlacemant;
 }

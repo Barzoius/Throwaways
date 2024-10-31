@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Rooms/MiddenEmpty.unity
     guid: 037d56ecb044a134b95d6cf701cceaf7
+  - enabled: 1
+    path: Assets/Scenes/Rooms/MiddenEnd.unity
+    guid: 3c19134ebd863fd4cb0a019e0079c52f
   m_configObjects: {}
