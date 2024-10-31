@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class Generator : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public GenerationMetrics metrics;
+
+    private List<Vector2Int> rooms;
+
+    private void Start()
     {
-        
+        rooms = CrawlerManager.Generate(metrics);
+        CreateRooms(rooms);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void CreateRooms(IEnumerable<Vector2Int> rooms)
     {
-        
+        RoomsManager.instance.LoadRoom("Start", 0, 0);
+
+        foreach(Vector2Int room in rooms)
+        {
+            RoomsManager.instance.LoadRoom("Empty", room.x, room.y);
+        }
     }
 }
