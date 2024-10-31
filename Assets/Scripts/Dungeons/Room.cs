@@ -9,8 +9,8 @@ public class Room : MonoBehaviour
     [Serializable]
     public struct RoomMetrics
     {
-        public int width;
-        public int height;
+        public float width;
+        public float height;
         public int x;
         public int y;
     }
@@ -24,7 +24,7 @@ public class Room : MonoBehaviour
             return;
         }
 
-        //RoomsManager.instance.RegisterRoom(this);
+        RoomsManager.instance.RegisterRoom(this);
     }
 
 
@@ -39,5 +39,13 @@ public class Room : MonoBehaviour
     {
         return new Vector3(roomMetrics.width * roomMetrics.x, 
                            roomMetrics.height * roomMetrics.y);
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.CompareTag("Player"))
+        {
+            RoomsManager.instance.OnEntering(this);
+        }
     }
 }
