@@ -19,7 +19,7 @@ public class RoomsManager : MonoBehaviour
 
     RoomInfo roomInfo;
 
-    Room room;
+    public Room room;
 
     Queue<RoomInfo> roomQueue = new Queue<RoomInfo>();
 
@@ -29,7 +29,7 @@ public class RoomsManager : MonoBehaviour
 
     public bool CheckRoom(int x, int y)
     {
-        return rooms.Find(item => item.roomMetrics.x == x && item.roomMetrics.x == y);
+        return rooms.Find(item => item.roomMetrics.x == x && item.roomMetrics.y == y);
     }
 
     public void LoadRoom(string name, int x, int y)
@@ -62,44 +62,40 @@ public class RoomsManager : MonoBehaviour
     public void RegisterRoom(Room room)
     {
 
-
-        room.transform.position = new Vector3(roomInfo.roomIndex.x *  room.roomMetrics.width,
-                                              roomInfo.roomIndex.y * room.roomMetrics.height, 0);
-
-        room.roomMetrics.x = roomInfo.roomIndex.x;
-        room.roomMetrics.y = roomInfo.roomIndex.y;
-        room.name = worldName + "//" + roomInfo.name + "// [ " 
-                              + room.roomMetrics.x + " , " 
-                              + room.roomMetrics.y + " ]";
-
-        room.transform.parent = transform;
-
-        isLoaded = false;
-
-        if (rooms.Count == 0)
+        if (!CheckRoom(roomInfo.roomIndex.x, roomInfo.roomIndex.y)) // to prevent overlapping
         {
-            CameraManager.instance.room = room;
-        }
 
-        rooms.Add(room); 
+            room.transform.position = new Vector3(roomInfo.roomIndex.x * room.roomMetrics.width,
+                                                  roomInfo.roomIndex.y * room.roomMetrics.height, 0);
+
+            room.roomMetrics.x = roomInfo.roomIndex.x;
+            room.roomMetrics.y = roomInfo.roomIndex.y;
+            room.name = worldName + "//" + roomInfo.name + "// [ "
+                                  + room.roomMetrics.x + " , "
+                                  + room.roomMetrics.y + " ]";
+
+            room.transform.parent = transform;
+
+            isLoaded = false;
+
+            if (rooms.Count == 0)
+            {
+                CameraManager.instance.room = room;
+            }
+
+            rooms.Add(room);
+        }
+        else
+        {
+            Destroy(room.gameObject);
+            isLoaded = false ;
+        }
     }
 
   
 
     void Start()
     {
-        //LoadRoom("Start", 0, 0);
-
-        //LoadRoom("Empty", 1, 0);
-
-        //LoadRoom("Empty", -1, 0);
-
-        //LoadRoom("Empty", 0, 1);
-
-        //LoadRoom("Empty", 0, -1);
-
-        //LoadRoom("Empty", 0, -2);
-
 
     }
 
