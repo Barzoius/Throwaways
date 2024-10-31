@@ -6,12 +6,12 @@ public class Generator : MonoBehaviour
 {
     public GenerationMetrics metrics;
 
-    private List<Vector2Int> rooms;
+    private List<Vector2Int> roomsList;
 
     private void Start()
     {
-        rooms = CrawlerManager.Generate(metrics);
-        CreateRooms(rooms);
+        roomsList = CrawlerManager.Generate(metrics);
+        CreateRooms(roomsList);
     }
 
     private void CreateRooms(IEnumerable<Vector2Int> rooms)
@@ -21,6 +21,7 @@ public class Generator : MonoBehaviour
         foreach(Vector2Int room in rooms)
         {
             RoomsManager.instance.LoadRoom("Empty", room.x, room.y);
+            
         }
     }
 }
