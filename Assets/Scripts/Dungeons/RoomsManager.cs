@@ -19,6 +19,8 @@ public class RoomsManager : MonoBehaviour
 
     RoomInfo roomInfo;
 
+    Room room;
+
     Queue<RoomInfo> roomQueue = new Queue<RoomInfo>();
 
     public List<Room> rooms = new List<Room>();
@@ -59,18 +61,25 @@ public class RoomsManager : MonoBehaviour
 
     public void RegisterRoom(Room room)
     {
-        room.transform.position = new Vector3(roomInfo.roomIndex.x =  room.roomMetrics.width,
-                                              roomInfo.roomIndex.y = room.roomMetrics.height, 0.0f);
+
+
+        room.transform.position = new Vector3(roomInfo.roomIndex.x *  room.roomMetrics.width,
+                                              roomInfo.roomIndex.y * room.roomMetrics.height, 0);
 
         room.roomMetrics.x = roomInfo.roomIndex.x;
         room.roomMetrics.y = roomInfo.roomIndex.y;
         room.name = worldName + "//" + roomInfo.name + "// [ " 
-                              + roomInfo.roomIndex.x + " , " 
-                              + roomInfo.roomIndex.y + " ]";
+                              + room.roomMetrics.x + " , " 
+                              + room.roomMetrics.y + " ]";
 
         room.transform.parent = transform;
 
         isLoaded = false;
+
+        if (rooms.Count == 0)
+        {
+            CameraManager.instance.room = room;
+        }
 
         rooms.Add(room); 
     }
@@ -88,6 +97,9 @@ public class RoomsManager : MonoBehaviour
         LoadRoom("Empty", 0, 1);
 
         LoadRoom("Empty", 0, -1);
+
+        LoadRoom("Empty", 0, -2);
+
 
     }
 
@@ -113,6 +125,12 @@ public class RoomsManager : MonoBehaviour
 
         StartCoroutine(LoadRooomRoutine(roomInfo));
 
+    }
+
+    public void OnEntering(Room pRoom)
+    {
+        CameraManager.instance.room = pRoom;
+        room = pRoom;
     }
 
 }
