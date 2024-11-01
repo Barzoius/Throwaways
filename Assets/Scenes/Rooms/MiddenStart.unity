@@ -149,7 +149,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.0543, y: -0.9428, z: 0}
-  m_LocalScale: {x: 1.7547956, y: 1.74762, z: 1}
+  m_LocalScale: {x: 1.754796, y: 1.74762, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2050960305}
@@ -336,6 +336,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8aca472275387e4bad90ab0b3550c73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  topDoor: {fileID: 0}
+  bottomDoor: {fileID: 0}
+  leftDoor: {fileID: 0}
+  rightDoor: {fileID: 0}
+  doorsList: []
   roomMetrics:
     width: 17.39
     height: 11.29

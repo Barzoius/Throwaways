@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 177626232}
   - component: {fileID: 177626236}
   - component: {fileID: 177626235}
+  - component: {fileID: 177626237}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -215,7 +216,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2.56, y: 2.56}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -253,6 +254,7 @@ MonoBehaviour:
   fireDelay: 0.5
   bulletPrefab: {fileID: 2601696495908737950, guid: 543022cd0eb38984caf98f7b9fb58fca, type: 3}
   hitpoints: {fileID: 0}
+  animator: {fileID: 177626237}
 --- !u!61 &177626236
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -290,7 +292,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 2.56, y: 2.56}
-    newSize: {x: 1, y: 1}
+    newSize: {x: 2.56, y: 2.56}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -298,6 +300,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!95 &177626237
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 177626231}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 229f35c2451d65b429c1d8fd2dbcb1ca, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &320155147
 GameObject:
   m_ObjectHideFlags: 0
@@ -480,7 +503,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: 6.700012}
+  m_AnchoredPosition: {x: 0, y: 6.7001038}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &463769154
@@ -757,6 +780,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d85e7cfdbebb8b40a9521047901e58a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  room: {fileID: 0}
   rooms: []
 --- !u!4 &954202712
 Transform:
@@ -1108,6 +1132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d85e7cfdbebb8b40a9521047901e58a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  room: {fileID: 0}
   rooms: []
 --- !u!1001 &2833988119148783090
 PrefabInstance:
