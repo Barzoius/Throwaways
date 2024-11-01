@@ -253,6 +253,7 @@ MonoBehaviour:
   fireDelay: 0.5
   bulletPrefab: {fileID: 2601696495908737950, guid: 543022cd0eb38984caf98f7b9fb58fca, type: 3}
   hitpoints: {fileID: 0}
+  animator: {fileID: 0}
 --- !u!61 &177626236
 BoxCollider2D:
   m_ObjectHideFlags: 0

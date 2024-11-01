@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     private float lastFire;
 
 
+    public Animator animator;
 
     void Start()
     {
@@ -33,6 +34,35 @@ public class PlayerMovement : MonoBehaviour
     {
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
+        animator.SetFloat("FrontMovement", Mathf.Abs(vertical * speed));
+
+        if (Mathf.Abs(vertical * speed) > 0)
+        {
+            if (vertical < 0)
+            {
+                animator.SetInteger("Direction", 1); // down
+
+            }
+            else if (vertical > 0)
+            {
+                animator.SetInteger("Direction", 2); // up
+            }
+        }
+        
+        animator.SetFloat("SideMovement", Mathf.Abs(horizontal * speed));
+
+        if (Mathf.Abs(horizontal * speed) > 0)
+        {
+            if (horizontal < 0)
+            {
+                animator.SetInteger("Direction", 3); // left
+
+            }
+            else if (horizontal > 0)
+            {
+                animator.SetInteger("Direction", 4); // right
+            }
+        }
 
         float shootHorizontal = Input.GetAxis("ShootHorizontal");
         float shootVertical = Input.GetAxis("ShootVertical");
