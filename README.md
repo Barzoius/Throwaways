@@ -32,7 +32,8 @@ where players explore
 
 ## Observatii:
 EDITOR VERSION: 2022.3.40f1<br />
-Trebuie sa selectati SampleScene din Assets>Scenes
+Trebuie sa selectati Main Menu din Assets>Scenes<br />
+Am atasat si un video demo pentru sprinturi in folderul Rapoarte
 
 -------------------------------
 ## Trimiteti raportul la adresa: mecca.rares@gmail.com.
