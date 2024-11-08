@@ -1,8 +1,9 @@
-<div style="display: flex; align-items: center;">
-    <img src="ResourcesMD/GAME_ICON.png" width="120px" style="margin-right: 10px;"/>
-    <span style="font-size: 32px; font-weight: bold;">Throwaways </span>
-</div>
+| <img src="ResourcesMD/GAME_ICON.png" width="120px"/> | **# Throwaways** |
+|------------------------------------------------------|--------------------------|
 
+
+| ![Game Icon](ResourcesMD/GAME_ICON.png) | **## Throwaways** |
+|-----------------------------------------|--------------------------|
 -------------------------------
 ## Game Presentation
 
