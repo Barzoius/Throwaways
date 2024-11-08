@@ -1,5 +1,9 @@
-# Throwaways
+<div style="display: flex; align-items: center;">
+    <img src="ResourcesMD/GAME_ICON.png" width="120px" style="margin-right: 10px;"/>
+    <span style="font-size: 32px; font-weight: bold;">Throwaways </span>
+</div>
 
+-------------------------------
 ## Game Presentation
 
 Throwaways is a 2D roguelike, twin-stick shooter with a top-down view 
