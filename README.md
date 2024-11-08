@@ -1,9 +1,9 @@
-| <img src="ResourcesMD/GAME_ICON.png" width="120px"/> | **# Throwaways** |
+| <img src="ResourcesMD/GAME_ICON.png" width="120px"/> | **Throwaways** |
 |------------------------------------------------------|--------------------------|
 
 
-| ![Game Icon](ResourcesMD/GAME_ICON.png) | **## Throwaways** |
-|-----------------------------------------|--------------------------|
+| ![Game Icon](ResourcesMD/GAME_ICON.png) | **<span style="font-size: 24px;">Throwaways</span>** |
+|-----------------------------------------|----------------------------------------------------------|
 -------------------------------
 ## Game Presentation
 
