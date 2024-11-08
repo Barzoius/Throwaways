@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     private static int maxHP = 10;
 
     private static float baseMS = 5.0f;
-    private static float currentMS = 5.0f;
+    public static float currentMS = baseMS;
     private static float maxMS;
     private static float minMS;
 
@@ -66,5 +66,18 @@ public class GameManager : MonoBehaviour
     public static void HealPlayer(int hp)
     {
         currentHP = Mathf.Min(maxHP, currentHP + hp);
+    }
+
+    public static void IncreaseMS(float bonusMS)
+    {
+        currentMS += bonusMS;
+    }
+
+    public static void UpdateMaxHP(int bonusHP)
+    {
+        if ((maxHP += bonusHP) > 50.0f)
+            maxHP = 50;
+        else
+            maxHP += bonusHP;
     }
 }
