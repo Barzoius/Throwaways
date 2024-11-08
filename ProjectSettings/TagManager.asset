@@ -42,3 +42,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: ITEMS
+    uniqueID: 1348328849
+    locked: 0
+  - name: PROJECTILE
+    uniqueID: 311352257
+    locked: 0
+  - name: PLAYER
+    uniqueID: 3495250423
+    locked: 0
+  - name: WALLS
+    uniqueID: 2439112317
+    locked: 0
