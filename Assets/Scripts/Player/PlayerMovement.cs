@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -99,10 +100,17 @@ public class PlayerMovement : MonoBehaviour
 
         int direction = (x > 0) ? 4 : (x < 0) ? 3 : (y > 0) ? 2 : 1;
 
-        animator.SetInteger("Direction", direction);
+        animator.SetInteger("ShootDirection", direction);
+
+        StartCoroutine(ResetShootDirection());
     }
 
 
+    IEnumerator ResetShootDirection()
+    {
+        yield return new WaitForSeconds(0.2f); // Adjust delay as needed
+        animator.SetInteger("ShootDirection", 0); // Reset to idle
+    }
 
     void ChangeAnimationState(string newState)
     {
