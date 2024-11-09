@@ -23,10 +23,13 @@ public class PlayerMovement : MonoBehaviour
 
 
     public Animator animator;
+    private string currentState;
 
     void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
+
+        animator = GetComponent<Animator>();
     }
 
 
@@ -60,14 +63,6 @@ public class PlayerMovement : MonoBehaviour
             animator.SetInteger("Direction", inputVector.x < 0 ? 3 : 4); // left  right
         }
 
-        float shootHorizontal = Input.GetAxis("ShootHorizontal");
-        float shootVertical = Input.GetAxis("ShootVertical");
-
-        if ((shootHorizontal != 0 || shootVertical != 0) && Time.time > lastFire + fireDelay)
-        {
-            Shoot(shootHorizontal, shootVertical);
-            lastFire = Time.time;
-        }
 
         float smoothingFactor = 5f;
 
@@ -81,6 +76,15 @@ public class PlayerMovement : MonoBehaviour
         // rigidbody.velocity = new Vector3(inputVector.x * adjustedSpeed, inputVector.y * adjustedSpeed, 0.0f);
 
 
+        float shootHorizontal = Input.GetAxis("ShootHorizontal");
+        float shootVertical = Input.GetAxis("ShootVertical");
+
+        if ((shootHorizontal != 0 || shootVertical != 0) && Time.time > lastFire + fireDelay)
+        {
+            Shoot(shootHorizontal, shootVertical);
+            lastFire = Time.time;
+        }
+
     }
 
     void Shoot(float x, float y)
@@ -93,5 +97,15 @@ public class PlayerMovement : MonoBehaviour
             (x < 0) ? Mathf.Floor(x) * bulletSpeed : Mathf.Ceil(x) * bulletSpeed,
             (y < 0) ? Mathf.Floor(y) * bulletSpeed : Mathf.Ceil(y) * bulletSpeed,
             0 );
+    }
+
+
+    void ChangeAnimationState(string newState)
+    {
+        if (currentState == newState) return;
+
+        animator.Play(newState);
+
+        currentState = newState;
     }
 }
