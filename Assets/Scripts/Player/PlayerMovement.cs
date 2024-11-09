@@ -26,6 +26,9 @@ public class PlayerMovement : MonoBehaviour
     public Animator animator;
     private string currentState;
 
+
+    private bool isShooting = false;
+
     void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
@@ -108,8 +111,8 @@ public class PlayerMovement : MonoBehaviour
 
     IEnumerator ResetShootDirection()
     {
-        yield return new WaitForSeconds(0.2f); // Adjust delay as needed
-        animator.SetInteger("ShootDirection", 0); // Reset to idle
+        yield return new WaitForSeconds(0.2f); // delay 
+        animator.SetInteger("ShootDirection", 0); // reset to idle
     }
 
     void ChangeAnimationState(string newState)
