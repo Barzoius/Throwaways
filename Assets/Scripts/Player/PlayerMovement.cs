@@ -79,7 +79,7 @@ public class PlayerMovement : MonoBehaviour
         float shootHorizontal = Input.GetAxis("ShootHorizontal");
         float shootVertical = Input.GetAxis("ShootVertical");
 
-        if ((shootHorizontal != 0 || shootVertical != 0) && Time.time > lastFire + fireDelay)
+        if ((shootHorizontal != 0 ^ shootVertical != 0) && Time.time > lastFire + fireDelay)
         {
             Shoot(shootHorizontal, shootVertical);
             lastFire = Time.time;
@@ -93,11 +93,15 @@ public class PlayerMovement : MonoBehaviour
 
         bullet.AddComponent<Rigidbody2D>().gravityScale = 0;
 
-        bullet.GetComponent<Rigidbody2D>().velocity = new Vector3(
-            (x < 0) ? Mathf.Floor(x) * bulletSpeed : Mathf.Ceil(x) * bulletSpeed,
-            (y < 0) ? Mathf.Floor(y) * bulletSpeed : Mathf.Ceil(y) * bulletSpeed,
-            0 );
+        float bulletX = (x != 0) ? Mathf.Sign(x) * bulletSpeed : 0;
+        float bulletY = (y != 0) ? Mathf.Sign(y) * bulletSpeed : 0;
+        bullet.GetComponent<Rigidbody2D>().velocity = new Vector3(bulletX, bulletY, 0);
+
+        int direction = (x > 0) ? 4 : (x < 0) ? 3 : (y > 0) ? 2 : 1;
+
+        animator.SetInteger("Direction", direction);
     }
+
 
 
     void ChangeAnimationState(string newState)
