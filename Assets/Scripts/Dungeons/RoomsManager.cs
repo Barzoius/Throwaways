@@ -183,4 +183,15 @@ public class RoomsManager : MonoBehaviour
         return rooms.Find(item => item.roomMetrics.x == x && item.roomMetrics.y == y);
     }
 
+    public string GetRandomRomType()
+    {
+        string[] roomTypes = new string[]
+        {
+            "Empty",
+            "Type1"
+        };
+
+        return roomTypes[Random.Range(0, roomTypes.Length)];
+    }
+
 }

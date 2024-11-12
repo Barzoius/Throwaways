@@ -30,6 +30,8 @@ public class GridManager : MonoBehaviour
 
     }
 
+
+
     public void CreateGrid()
     {
         //grid.vertOffset += room.transform.localPosition.y;
@@ -49,5 +51,7 @@ public class GridManager : MonoBehaviour
                 freeTiles.Add(go.transform.position);
             }
         }
+
+        GetComponentInParent<ObjectRoomSpawner>().InitialiseObjectSpawners();
     }
 }
