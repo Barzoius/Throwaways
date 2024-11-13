@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Rooms/Midden.unity
     guid: bb17d40be29d8fd4694e0cd2420e1a06
+  - enabled: 1
+    path: Assets/Scenes/Rooms/MiddenType1.unity
+    guid: e8e6c2f19e3e1794ab5bca39678bc6db
   m_configObjects: {}

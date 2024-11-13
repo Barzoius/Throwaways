@@ -133,6 +133,7 @@ public class RoomsManager : MonoBehaviour
                     room.DisposeUselessDoors();
                 }
 
+                UpdateRoomElemets();
                 updatedRooms = true;
             }
             return; 
@@ -175,6 +176,41 @@ public class RoomsManager : MonoBehaviour
     {
         CameraManager.instance.room = pRoom;
         room = pRoom;
+
+        UpdateRoomElemets();
+    }
+
+
+    private void UpdateRoomElemets()
+    {
+        foreach(Room froom in rooms)
+        {
+            if(room != froom)
+            {
+                EnemyBehaviour[] enemies = room.GetComponentsInChildren<EnemyBehaviour>();
+
+                if(enemies != null)
+                {
+                    foreach(EnemyBehaviour enemy in enemies)
+                    {
+                        enemy.playerPresent = true;
+                    }
+                }
+            }
+
+            else
+            {
+                EnemyBehaviour[] enemies = room.GetComponentsInChildren<EnemyBehaviour>();
+
+                if (enemies != null)
+                {
+                    foreach (EnemyBehaviour enemy in enemies)
+                    {
+                        enemy.playerPresent = false;
+                    }
+                }
+            }
+        }
     }
 
 
