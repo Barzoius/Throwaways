@@ -20,7 +20,7 @@ public class Generator : MonoBehaviour
 
         foreach(Vector2Int room in rooms)
         {
-            RoomsManager.instance.LoadRoom("Empty", room.x, room.y);
+            RoomsManager.instance.LoadRoom(RoomsManager.instance.GetRandomRomType(), room.x, room.y);
             
         }
     }

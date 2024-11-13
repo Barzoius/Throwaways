@@ -4,6 +4,7 @@ using UnityEngine;
 
 public enum EnemyState
 {
+    IDLE,
     WANDER,
     FOLLOW,
     ATTACK,
@@ -32,6 +33,7 @@ public class EnemyBehaviour : MonoBehaviour
     [SerializeField]
     private float speed;
 
+    public bool playerPresent = false;
 
     private bool chooseDir = false;
     private bool isDead = false;
@@ -50,6 +52,9 @@ public class EnemyBehaviour : MonoBehaviour
     {
         switch (enemyState)
         {
+            case EnemyState.IDLE:
+                Idle();
+                break;
             case EnemyState.WANDER:
                 Wander();
                 break;
@@ -68,18 +73,25 @@ public class EnemyBehaviour : MonoBehaviour
 
         }
 
-        if (inRange(aggroRange) && enemyState != EnemyState.DIE)
+        if (playerPresent == true)
         {
-            enemyState = EnemyState.FOLLOW;
-        }
-        else if (!inRange(aggroRange) && enemyState != EnemyState.DIE)
-        {
-            enemyState = EnemyState.WANDER;
-        }
+            if (inRange(aggroRange) && enemyState != EnemyState.DIE)
+            {
+                enemyState = EnemyState.FOLLOW;
+            }
+            else if (!inRange(aggroRange) && enemyState != EnemyState.DIE)
+            {
+                enemyState = EnemyState.WANDER;
+            }
 
-        if (Vector3.Distance(transform.position, player.transform.position) <= attackRange)
+            if (Vector3.Distance(transform.position, player.transform.position) <= attackRange)
+            {
+                enemyState = EnemyState.ATTACK;
+            }
+        }
+        else
         {
-            enemyState = EnemyState.ATTACK;
+            enemyState = EnemyState.IDLE;
         }
     }
 
@@ -98,6 +110,11 @@ public class EnemyBehaviour : MonoBehaviour
                                              nextRotation,
                                              Random.Range(0.5f, 2.5f));
         chooseDir = false;
+    }
+
+    void Idle()
+    {
+
     }
 
     void Wander()
