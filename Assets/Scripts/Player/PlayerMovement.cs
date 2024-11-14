@@ -113,6 +113,32 @@ public class PlayerMovement : MonoBehaviour
     }
 
 
+    // not finished better shooting offseting 
+
+    //void Shoot(float x, float y)
+    //{
+    //    Vector2 shootDirection = new Vector2(x, y).normalized;
+
+    //    // offset the bullet starting position in the direction of shooting
+    //    Vector3 bulletStartPosition = transform.position + new Vector3(shootDirection.x, shootDirection.y, 0) * 0.5f;
+
+    //    GameObject bullet = Instantiate(bulletPrefab, bulletStartPosition, transform.rotation);
+
+    //    Rigidbody2D rb = bullet.AddComponent<Rigidbody2D>();
+    //    rb.gravityScale = 0;
+
+    //    // get the player velocity and add it to the bullet velocity
+    //    Rigidbody2D playerRb = GetComponent<Rigidbody2D>();
+    //    Vector2 playerVelocity = playerRb != null ? playerRb.velocity : Vector2.zero;
+
+    //    rb.velocity = (shootDirection * bulletSpeed) + playerVelocity;
+
+    //    int direction = (x > 0) ? 4 : (x < 0) ? 3 : (y > 0) ? 2 : 1;
+    //    animator.SetInteger("ShootDirection", direction);
+
+    //    StartCoroutine(ResetShootDirection());
+    //}
+
     IEnumerator ResetShootDirection()
     {
         yield return new WaitForSeconds(0.2f); // delay 

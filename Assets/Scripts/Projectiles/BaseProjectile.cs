@@ -7,9 +7,14 @@ public class BaseProjectile : MonoBehaviour
     [SerializeField]
     private float lifeTime;
 
+    public Animator animator;
+
+    private bool isDestroying = false;
+
     void Start()
     {
         StartCoroutine(DeleteDelay());
+        
     }
 
     void Update()
@@ -17,9 +22,11 @@ public class BaseProjectile : MonoBehaviour
         
     }
 
+
     IEnumerator DeleteDelay()
     {
         yield return new WaitForSeconds(lifeTime);
+
         Destroy(gameObject);
     }
 
