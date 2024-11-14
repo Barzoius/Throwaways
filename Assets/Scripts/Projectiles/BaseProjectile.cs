@@ -40,5 +40,20 @@ public class BaseProjectile : MonoBehaviour
                 Debug.LogWarning("Enemy does not have an EnemyBehaviour script attached.");
             }
         }
+        if(collider.tag == "EnemyShooter")
+        {
+            Debug.Log("Hit an enemy!");
+
+            EnemyShooterBehaviour enemyBehaviour = collider.gameObject.GetComponent<EnemyShooterBehaviour>();
+            if (enemyBehaviour != null)
+            {
+                enemyBehaviour.Die();
+                Destroy(gameObject);
+            }
+            else
+            {
+                Debug.LogWarning("Enemy does not have an EnemyBehaviour script attached.");
+            }
+        }
     }
 }
