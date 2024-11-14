@@ -49,6 +49,8 @@ public class GridManager : MonoBehaviour
 
                 go.name = "X: " + j + "," + "Y: " + i;
                 freeTiles.Add(go.transform.position);
+
+                go.SetActive(false);
             }
         }
 
