@@ -165,6 +165,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     public void Die()
     {
+        RoomsManager.instance.StartCoroutine(RoomsManager.instance.RoomCoroutine());
         enemyState = EnemyState.DIE;
         Destroy(gameObject);
     }

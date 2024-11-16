@@ -16,4 +16,41 @@ public class Door : MonoBehaviour
     }
 
     public DoorPlacemant doorPlacemant;
+
+    private GameObject player;
+
+    public GameObject doorCollider;
+
+    private float widthOffset = 4.0f;
+
+    private void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if(col.CompareTag("Player"))
+        {
+            switch(doorPlacemant)
+            {
+                case DoorPlacemant.TOP:
+                    player.transform.position = new Vector3(transform.position.x,
+                                                            transform.position.y + widthOffset);
+                    break;
+                case DoorPlacemant.BOTTOM:
+                    player.transform.position = new Vector3(transform.position.x,
+                                                            transform.position.y - widthOffset);
+                    break;
+                case DoorPlacemant.LEFT:
+                    player.transform.position = new Vector3(transform.position.x - widthOffset,
+                                                            transform.position.y);
+                    break;
+                case DoorPlacemant.RIGHT:
+                    player.transform.position = new Vector3(transform.position.x + widthOffset,
+                                                            transform.position.y);
+                    break;
+            }
+        }
+    }
 }
