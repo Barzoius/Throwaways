@@ -78,7 +78,7 @@ public class Room : MonoBehaviour
         }
     }
 
-
+    //aici activeaza colliderii din mijloc
     public void DisposeUselessDoors()
     {
         foreach(Door door in doorsList)
