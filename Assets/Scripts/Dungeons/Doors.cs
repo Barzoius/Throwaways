@@ -21,7 +21,7 @@ public class Door : MonoBehaviour
 
     public GameObject doorCollider;
 
-    private float widthOffset = 4.0f;
+    private float widthOffset = 4.2f;
 
     private void Start()
     {

@@ -149,6 +149,7 @@ MonoBehaviour:
   attackRange: 1
   attackCD: 2
   speed: 1
+  playerPresent: 0
 --- !u!95 &2850883381001829887
 Animator:
   serializedVersion: 5
