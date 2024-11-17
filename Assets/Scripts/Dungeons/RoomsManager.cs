@@ -177,41 +177,62 @@ public class RoomsManager : MonoBehaviour
         CameraManager.instance.room = pRoom;
         room = pRoom;
 
+        StartCoroutine(RoomCoroutine());
+
+    }
+
+    public IEnumerator RoomCoroutine()
+    {
+        yield return new WaitForSeconds(0.2f);
         UpdateRoomElemets();
     }
 
-
-    private void UpdateRoomElemets()
+    public void UpdateRoomElemets()
     {
-        foreach(Room froom in rooms)
+        foreach (Room froom in rooms)
         {
-            if(room != froom)
-            {
-                EnemyBehaviour[] enemies = room.GetComponentsInChildren<EnemyBehaviour>();
+            EnemyBehaviour[] enemies = froom.GetComponentsInChildren<EnemyBehaviour>();
 
-                if(enemies != null)
+            if (froom == room) // room is current room
+            {
+                if (enemies.Length > 0) // room has enemies
                 {
-                    foreach(EnemyBehaviour enemy in enemies)
+                    foreach (Door door in froom.GetComponentsInChildren<Door>())
                     {
-                        enemy.playerPresent = true;
+                        door.doorCollider.SetActive(true); // activate doors
+                    }
+
+                    foreach (EnemyBehaviour enemy in enemies)
+                    {
+                        enemy.playerPresent = true; // player is present
+                    }
+                }
+                else // no enemiies left
+                {
+                    foreach (Door door in froom.GetComponentsInChildren<Door>())
+                    {
+                        door.doorCollider.SetActive(false); // deactivate doors
                     }
                 }
             }
-
-            else
+            else 
             {
-                EnemyBehaviour[] enemies = room.GetComponentsInChildren<EnemyBehaviour>();
+                foreach (Door door in froom.GetComponentsInChildren<Door>())
+                {
+                    door.doorCollider.SetActive(false); // deactivate dors
+                }
 
-                if (enemies != null)
+                if (enemies.Length > 0)
                 {
                     foreach (EnemyBehaviour enemy in enemies)
                     {
-                        enemy.playerPresent = false;
+                        enemy.playerPresent = false; 
                     }
                 }
             }
         }
     }
+
 
 
     public Room FindRoom(int x, int y)
@@ -231,3 +252,4 @@ public class RoomsManager : MonoBehaviour
     }
 
 }
+
