@@ -39,16 +39,16 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        speed = GameManager.currentMS;
-
+        float speed = GameManager.currentMS;
 
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
-        Vector2 inputVector = new Vector2(horizontal, vertical).normalized; // for consistent speed
+ 
+        Vector2 inputVector = new Vector2(horizontal, vertical).normalized; // for consistant speed
 
+        // diagonal speed adjustment
         bool isDiagonal = horizontal != 0 && vertical != 0;
-
         float adjustedSpeed = isDiagonal ? speed / Mathf.Sqrt(2) : speed;
 
 
@@ -58,15 +58,17 @@ public class PlayerMovement : MonoBehaviour
         animator.SetFloat("FrontMovement", Mathf.Lerp(animator.GetFloat("FrontMovement"), targetFrontMovement, Time.deltaTime * 10f));
         animator.SetFloat("SideMovement", Mathf.Lerp(animator.GetFloat("SideMovement"), targetSideMovement, Time.deltaTime * 10f));
 
-        if (targetFrontMovement > 0)
+        if (inputVector != Vector2.zero)
         {
-            animator.SetInteger("Direction", inputVector.y < 0 ? 1 : 2); // down  up
+            if (Mathf.Abs(inputVector.y) >= Mathf.Abs(inputVector.x))  // Vertical
+            {
+                animator.SetInteger("Direction", inputVector.y < 0 ? 1 : 2); // Down or Up
+            }
+            else // Horizontal
+            {
+                animator.SetInteger("Direction", inputVector.x < 0 ? 3 : 4); // Left or Right
+            }
         }
-        else if (targetSideMovement > 0)
-        {
-            animator.SetInteger("Direction", inputVector.x < 0 ? 3 : 4); // left  right
-        }
-
 
         float smoothingFactor = 5f;
 

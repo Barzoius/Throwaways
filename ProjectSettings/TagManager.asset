@@ -49,9 +49,12 @@ TagManager:
   - name: PROJECTILE
     uniqueID: 311352257
     locked: 0
-  - name: PLAYER
-    uniqueID: 3495250423
+  - name: DOORS
+    uniqueID: 1570162019
     locked: 0
   - name: WALLS
     uniqueID: 2439112317
+    locked: 0
+  - name: PLAYER
+    uniqueID: 3495250423
     locked: 0
