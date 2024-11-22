@@ -195,6 +195,12 @@ public class RoomsManager : MonoBehaviour
 
             if (froom == room) // room is current room
             {
+                if(room.name.Contains("End"))
+                {
+                    BossBehaviour boss = froom.GetComponentInChildren<BossBehaviour>();
+                    boss.playerPresent = true;
+                }
+
                 if (enemies.Length > 0) // room has enemies
                 {
                     foreach (Door door in froom.GetComponentsInChildren<Door>())
@@ -245,7 +251,8 @@ public class RoomsManager : MonoBehaviour
         string[] roomTypes = new string[]
         {
             "Empty",
-            "Type1"
+            "Type1",
+            "Type2"
         };
 
         return roomTypes[Random.Range(0, roomTypes.Length)];

@@ -11,15 +11,44 @@ public class BaseProjectile : MonoBehaviour
 
     private bool isDestroying = false;
 
+    public bool isEnemyBullet = false;
+
+    private Vector2 lastPos;
+    private Vector2 currentPos;
+    private Vector2 playerPos;
+
     void Start()
     {
         StartCoroutine(DeleteDelay());
+
+        //if (!isEnemyBullet)
+        //{
+
+        //}
+
         
     }
 
     void Update()
     {
-        
+        if(isEnemyBullet)
+        {
+            currentPos = transform.position;
+            transform.position = Vector2.MoveTowards(transform.position, playerPos, 5f* Time.deltaTime);
+
+            if(currentPos == lastPos)
+            {
+                Destroy(gameObject);
+            }
+
+            lastPos = currentPos;
+
+        }
+    }
+
+    public void GetPlayer(Transform player)
+    {
+        playerPos = player.position;
     }
 
 
@@ -32,7 +61,7 @@ public class BaseProjectile : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        if(collider.tag == "Enemy")
+        if(collider.tag == "Enemy" && !isEnemyBullet)
         {
             Debug.Log("Hit an enemy!");
 
@@ -46,6 +75,12 @@ public class BaseProjectile : MonoBehaviour
             {
                 Debug.LogWarning("Enemy does not have an EnemyBehaviour script attached.");
             }
+        }
+
+        if(collider.tag == "Player" && isEnemyBullet)
+        {
+            GameManager.DamagePlayer(2);
+            Destroy(gameObject);
         }
     }
 }

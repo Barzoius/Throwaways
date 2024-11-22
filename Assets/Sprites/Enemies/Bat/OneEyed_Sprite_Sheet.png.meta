@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6653f02de9c0fbf40af29265fe4a565c
+guid: 5257edffe2cf35a43b8d426035a6c439
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Bat_Sprite_Sheet_2_0
+      name: OneEyed_Sprite_Sheet_0
       rect:
         serializedVersion: 2
         x: 0
@@ -124,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eb6f8b6efc4e37944b43e3ec0dbdf141
-      internalID: -1788760131
+      spriteID: 08d2cec3ff416724ca74580c81a1e8f3
+      internalID: 1374010699
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bat_Sprite_Sheet_2_1
+      name: OneEyed_Sprite_Sheet_1
       rect:
         serializedVersion: 2
         x: 216
@@ -145,14 +145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 587ccfb2ecf47dd4eada293d34f22011
-      internalID: 808450122
+      spriteID: 756903f1d9f91f448b960a3de8db871c
+      internalID: 95364352
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bat_Sprite_Sheet_2_2
+      name: OneEyed_Sprite_Sheet_2
       rect:
         serializedVersion: 2
         x: 432
@@ -166,14 +166,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ccb770cd330f5854ab07588b848877fb
-      internalID: -341887987
+      spriteID: bbc5ed192d100714489f6c86b7d1481b
+      internalID: 1285812754
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bat_Sprite_Sheet_2_3
+      name: OneEyed_Sprite_Sheet_3
       rect:
         serializedVersion: 2
         x: 648
@@ -187,14 +187,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 912cb393ff7544e468a5f0be66ee5f94
-      internalID: 1788532610
+      spriteID: 2f4046c0d8aedd344ae4a820791a4d3a
+      internalID: -1196145372
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bat_Sprite_Sheet_2_4
+      name: OneEyed_Sprite_Sheet_4
       rect:
         serializedVersion: 2
         x: 864
@@ -208,8 +208,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ecb7a7e1a3eefa74ea0bf81b43ce1731
-      internalID: 1929203198
+      spriteID: 02bd007c3ddab3640bb9a07e40e40ac3
+      internalID: -1950713793
       vertices: []
       indices: 
       edges: []
@@ -217,7 +217,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: aec07994b58dcc84dbfdc02e19b075c5
     internalID: 0
     vertices: []
     indices: 
@@ -225,11 +225,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Bat_Sprite_Sheet_2_0: -1788760131
-      Bat_Sprite_Sheet_2_1: 808450122
-      Bat_Sprite_Sheet_2_2: -341887987
-      Bat_Sprite_Sheet_2_3: 1788532610
-      Bat_Sprite_Sheet_2_4: 1929203198
+      OneEyed_Sprite_Sheet_0: 1374010699
+      OneEyed_Sprite_Sheet_1: 95364352
+      OneEyed_Sprite_Sheet_2: 1285812754
+      OneEyed_Sprite_Sheet_3: -1196145372
+      OneEyed_Sprite_Sheet_4: -1950713793
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

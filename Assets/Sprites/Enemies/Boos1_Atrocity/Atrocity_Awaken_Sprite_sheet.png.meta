@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6653f02de9c0fbf40af29265fe4a565c
+guid: 816f9a77ae18de04ead9468723bc8e25
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Bat_Sprite_Sheet_2_0
+      name: Atrocity_Awaken_Sprite_sheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 216
-        height: 432
+        width: 1080
+        height: 1080
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eb6f8b6efc4e37944b43e3ec0dbdf141
-      internalID: -1788760131
+      spriteID: 8e2b40f755c79994494a0a094162698a
+      internalID: -1790320227
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bat_Sprite_Sheet_2_1
+      name: Atrocity_Awaken_Sprite_sheet_1
       rect:
         serializedVersion: 2
-        x: 216
+        x: 1080
         y: 0
-        width: 216
-        height: 432
+        width: 1080
+        height: 1080
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 587ccfb2ecf47dd4eada293d34f22011
-      internalID: 808450122
+      spriteID: f9b5acc43eb4e4f48ba8771cdc0e6b84
+      internalID: 1251201445
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bat_Sprite_Sheet_2_2
+      name: Atrocity_Awaken_Sprite_sheet_2
       rect:
         serializedVersion: 2
-        x: 432
+        x: 2160
         y: 0
-        width: 216
-        height: 432
+        width: 1080
+        height: 1080
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,20 +166,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ccb770cd330f5854ab07588b848877fb
-      internalID: -341887987
+      spriteID: 3a0b910e42553db43ab8067b03954f78
+      internalID: -2017907356
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bat_Sprite_Sheet_2_3
+      name: Atrocity_Awaken_Sprite_sheet_3
       rect:
         serializedVersion: 2
-        x: 648
+        x: 3240
         y: 0
-        width: 216
-        height: 432
+        width: 1080
+        height: 1080
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,20 +187,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 912cb393ff7544e468a5f0be66ee5f94
-      internalID: 1788532610
+      spriteID: 5e3fa975121fceb48aa7b70480589a6e
+      internalID: -806408064
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bat_Sprite_Sheet_2_4
+      name: Atrocity_Awaken_Sprite_sheet_4
       rect:
         serializedVersion: 2
-        x: 864
+        x: 4320
         y: 0
-        width: 216
-        height: 432
+        width: 1080
+        height: 1080
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -208,8 +208,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ecb7a7e1a3eefa74ea0bf81b43ce1731
-      internalID: 1929203198
+      spriteID: eb408ad7a33cc4a439180e5976592a2f
+      internalID: -294708588
       vertices: []
       indices: 
       edges: []
@@ -217,7 +217,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 57d85558e7127174a86ed619e66d2927
     internalID: 0
     vertices: []
     indices: 
@@ -225,11 +225,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Bat_Sprite_Sheet_2_0: -1788760131
-      Bat_Sprite_Sheet_2_1: 808450122
-      Bat_Sprite_Sheet_2_2: -341887987
-      Bat_Sprite_Sheet_2_3: 1788532610
-      Bat_Sprite_Sheet_2_4: 1929203198
+      Atrocity_Awaken_Sprite_sheet_0: -1790320227
+      Atrocity_Awaken_Sprite_sheet_1: 1251201445
+      Atrocity_Awaken_Sprite_sheet_2: -2017907356
+      Atrocity_Awaken_Sprite_sheet_3: -806408064
+      Atrocity_Awaken_Sprite_sheet_4: -294708588
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

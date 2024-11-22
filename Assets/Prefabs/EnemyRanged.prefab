@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 624427233190283450}
   - component: {fileID: 2850883381001829887}
   m_Layer: 0
-  m_Name: EnemyPrototype
+  m_Name: EnemyRanged
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -122,7 +122,7 @@ SpriteRenderer:
   m_SortingLayer: 5
   m_SortingOrder: 1
   m_Sprite: {fileID: -1788760131, guid: 6653f02de9c0fbf40af29265fe4a565c, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.95686275, g: 0.015686275, b: 0.26304686, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -145,11 +145,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyState: 0
+  enemyType: 1
   aggroRange: 5
-  attackRange: 1
+  attackRange: 5
   attackCD: 2
   speed: 1
   playerPresent: 0
+  bulletPrefab: {fileID: 2601696495908737950, guid: abd2c07a491e33b439489a3e636a3044, type: 3}
 --- !u!95 &2850883381001829887
 Animator:
   serializedVersion: 5
