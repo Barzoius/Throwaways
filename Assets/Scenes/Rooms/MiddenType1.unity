@@ -292,7 +292,7 @@ MonoBehaviour:
   gridManager: {fileID: 127921793}
   spawnerData:
   - name: Enemy1
-    spawnMetrics: {fileID: 11400000, guid: 88f1f217b76eae64486b6c39eecf64ef, type: 2}
+    spawnMetrics: {fileID: 11400000, guid: 890be495a9a9cf645b5daefaf6859487, type: 2}
   - name: Item
     spawnMetrics: {fileID: 11400000, guid: 232762a6b34d13d40a5de9272cec53ab, type: 2}
 --- !u!4 &2050960305 stripped

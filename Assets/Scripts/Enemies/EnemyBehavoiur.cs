@@ -12,12 +12,20 @@ public enum EnemyState
     DIE
 };
 
+public enum EnemyType
+{
+    MELEE,
+    RANGED
+};
+
 public class EnemyBehaviour : MonoBehaviour
 {
 
     GameObject player;
 
     public EnemyState enemyState = EnemyState.WANDER;
+
+    public EnemyType enemyType;
 
     [SerializeField]
     private float aggroRange;
@@ -39,6 +47,8 @@ public class EnemyBehaviour : MonoBehaviour
     private bool isDead = false;
 
     private Vector3 randomDir;
+
+    public GameObject bulletPrefab;
 
 
 
@@ -105,10 +115,10 @@ public class EnemyBehaviour : MonoBehaviour
         chooseDir = true;
         yield return new WaitForSeconds(Random.Range(2f, 8f));
         randomDir = new Vector3(0, 0, Random.Range(0, 360));
-        Quaternion nextRotation = Quaternion.Euler(randomDir);
-        transform.rotation = Quaternion.Lerp(transform.rotation,
-                                             nextRotation,
-                                             Random.Range(0.5f, 2.5f));
+        //Quaternion nextRotation = Quaternion.Euler(randomDir);
+        //transform.rotation = Quaternion.Lerp(transform.rotation,
+        //                                     nextRotation,
+        //                                     Random.Range(0.5f, 2.5f));
         chooseDir = false;
     }
 
@@ -150,10 +160,27 @@ public class EnemyBehaviour : MonoBehaviour
 
     void Attack()
     {
+
         if (!inAttackCD)
         {
-            GameManager.DamagePlayer(5);
-            StartCoroutine(CoolDown());
+
+            switch (enemyType)
+            {
+                case (EnemyType.MELEE):
+                    GameManager.DamagePlayer(5);
+                    StartCoroutine(CoolDown());
+                    break;
+
+                case (EnemyType.RANGED):
+                    GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity) as GameObject;
+                    bullet.GetComponent<BaseProjectile>().GetPlayer(player.transform);
+                    bullet.AddComponent<Rigidbody2D>().gravityScale = 0;
+                    bullet.GetComponent<BaseProjectile>().isEnemyBullet = true;
+                    StartCoroutine(CoolDown());
+                    break;
+
+            }
+
         }
     }
 
