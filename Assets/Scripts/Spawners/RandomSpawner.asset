@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: RandomSpawner
   m_EditorClassIdentifier: 
   spawableObj: {fileID: 3501461747428000961, guid: 1465bb3c49a93b54f9cdc6965db94976, type: 3}
-  minSpawns: 0
+  minSpawns: 1
   maxSpawns: 1

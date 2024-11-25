@@ -54,6 +54,7 @@ public class GridManager : MonoBehaviour
             }
         }
 
-        GetComponentInParent<ObjectRoomSpawner>().InitialiseObjectSpawners();
+        //GetComponentInParent<ObjectRoomSpawner>().InitialiseObjectSpawners();
+        GetComponentInParent<SpecificPosSpawner>().SpawnObjects(); ;
     }
 }
