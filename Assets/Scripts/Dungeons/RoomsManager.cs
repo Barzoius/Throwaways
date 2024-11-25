@@ -193,12 +193,19 @@ public class RoomsManager : MonoBehaviour
         {
             EnemyBehaviour[] enemies = froom.GetComponentsInChildren<EnemyBehaviour>();
 
+            
+
             if (froom == room) // room is current room
             {
-                if(room.name.Contains("End"))
+                if (froom.name.Contains("End")) 
                 {
                     BossBehaviour boss = froom.GetComponentInChildren<BossBehaviour>();
                     boss.playerPresent = true;
+
+                    foreach (Door door in froom.GetComponentsInChildren<Door>())
+                    {
+                        door.doorCollider.SetActive(true); // activate doors 
+                    }
                 }
 
                 if (enemies.Length > 0) // room has enemies
@@ -252,7 +259,9 @@ public class RoomsManager : MonoBehaviour
         {
             "Empty",
             "Type1",
-            "Type2"
+            "Type2",
+            "Type3"
+
         };
 
         return roomTypes[Random.Range(0, roomTypes.Length)];
