@@ -1128,6 +1128,14 @@ PrefabInstance:
       propertyPath: items.Array.data[1].go
       value: 
       objectReference: {fileID: 9190822556242271090, guid: 5b787f1a9c4a3ba42b0c2550c968c6f9, type: 3}
+    - target: {fileID: 4812907092276560788, guid: 1465bb3c49a93b54f9cdc6965db94976, type: 3}
+      propertyPath: items.Array.data[0].weight
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4812907092276560788, guid: 1465bb3c49a93b54f9cdc6965db94976, type: 3}
+      propertyPath: items.Array.data[1].weight
+      value: 0.7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
