@@ -54,7 +54,26 @@ public class GridManager : MonoBehaviour
             }
         }
 
-        //GetComponentInParent<ObjectRoomSpawner>().InitialiseObjectSpawners();
-        GetComponentInParent<SpecificPosSpawner>().SpawnObjects(); ;
+
+        var objectRoomSpawner = GetComponentInParent<ObjectRoomSpawner>();
+        if (objectRoomSpawner != null)
+        {
+            objectRoomSpawner.InitialiseObjectSpawners();
+            return; 
+        }
+
+        var specificPosSpawner = GetComponentInParent<SpecificPosSpawner>();
+        if (specificPosSpawner != null)
+        {
+            specificPosSpawner.SpawnObjects();
+            return; 
+        }
+
+        var chestSpawner = GetComponentInParent<ChestSpawner>();
+        if (chestSpawner != null)
+        {
+            chestSpawner.SpawnObjects();
+            return; 
+        }
     }
 }
