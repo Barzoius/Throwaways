@@ -41,9 +41,9 @@ public class ItemSpawner : MonoBehaviour
             cumulativeWeight += items[chosenIndex].weight;
         }
 
-        GameObject iGo = Instantiate(items[chosenIndex].go,
+        Instantiate(items[chosenIndex].go,
                                    transform.position,
-                                   Quaternion.identity) as GameObject;
+                                   Quaternion.identity) ;
     }
 
 

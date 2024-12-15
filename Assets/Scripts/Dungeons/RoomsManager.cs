@@ -193,18 +193,22 @@ public class RoomsManager : MonoBehaviour
         {
             EnemyBehaviour[] enemies = froom.GetComponentsInChildren<EnemyBehaviour>();
 
-            
-
             if (froom == room) // room is current room
             {
-                if (froom.name.Contains("End")) 
+                if (froom.name.Contains("End"))
                 {
                     BossBehaviour boss = froom.GetComponentInChildren<BossBehaviour>();
-                    boss.playerPresent = true;
-
-                    foreach (Door door in froom.GetComponentsInChildren<Door>())
+                    if (boss != null)
                     {
-                        door.doorCollider.SetActive(true); // activate doors 
+                        boss.playerPresent = true;
+
+                        foreach (Door door in froom.GetComponentsInChildren<Door>())
+                        {
+                            door.doorCollider.SetActive(true); // activate doors
+                        }
+
+                        // Skip enemy checks for the "End" room since the boss is present
+                        continue;
                     }
                 }
 
@@ -220,7 +224,7 @@ public class RoomsManager : MonoBehaviour
                         enemy.playerPresent = true; // player is present
                     }
                 }
-                else // no enemiies left
+                else // no enemies left
                 {
                     foreach (Door door in froom.GetComponentsInChildren<Door>())
                     {
@@ -228,23 +232,24 @@ public class RoomsManager : MonoBehaviour
                     }
                 }
             }
-            else 
+            else // rooms other than the current room
             {
                 foreach (Door door in froom.GetComponentsInChildren<Door>())
                 {
-                    door.doorCollider.SetActive(false); // deactivate dors
+                    door.doorCollider.SetActive(false); // deactivate doors
                 }
 
                 if (enemies.Length > 0)
                 {
                     foreach (EnemyBehaviour enemy in enemies)
                     {
-                        enemy.playerPresent = false; 
+                        enemy.playerPresent = false;
                     }
                 }
             }
         }
     }
+
 
 
 
