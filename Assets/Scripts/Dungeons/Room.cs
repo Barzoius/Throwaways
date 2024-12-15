@@ -78,6 +78,28 @@ public class Room : MonoBehaviour
         }
     }
 
+
+    private void DeactivateDoorButKeepCollider(Door door)
+    {
+
+        door.gameObject.SetActive(false);
+
+        if (door.doorCollider != null)
+        {
+
+            door.doorCollider.transform.SetParent(null);
+
+            SpriteRenderer spriteRenderer = door.doorCollider.GetComponent<SpriteRenderer>();
+
+            if (spriteRenderer != null)
+            {
+                spriteRenderer.enabled = false; 
+            }
+
+            door.doorCollider.SetActive(true);
+        }
+    }
+
     //aici activeaza colliderii din mijloc
     public void DisposeUselessDoors()
     {
@@ -87,19 +109,23 @@ public class Room : MonoBehaviour
             {
                 case Door.DoorPlacemant.RIGHT:
                     if (GetRight() == null)
-                        door.gameObject.SetActive(false);
+                        //door.gameObject.SetActive(false);
+                        DeactivateDoorButKeepCollider(door);
                     break;
                 case Door.DoorPlacemant.LEFT:
                     if (GetLeft() == null)
-                        door.gameObject.SetActive(false);
+                        DeactivateDoorButKeepCollider(door);
+                        //door.gameObject.SetActive(false);
                     break;
                 case Door.DoorPlacemant.TOP:
                     if (GetTop() == null)
-                        door.gameObject.SetActive(false);
+                        DeactivateDoorButKeepCollider(door);
+                        //door.gameObject.SetActive(false);
                     break;
                 case Door.DoorPlacemant.BOTTOM:
                     if (GetBottom() == null)
-                        door.gameObject.SetActive(false);
+                        DeactivateDoorButKeepCollider(door);
+                        //door.gameObject.SetActive(false);
                     break;
             }
         }
