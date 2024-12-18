@@ -77,6 +77,17 @@ public class BaseProjectile : MonoBehaviour
             }
         }
 
+        if(collider.tag == "Boss" && !isEnemyBullet)
+        {
+            BossBehaviour BB = collider.gameObject.GetComponent<BossBehaviour>();
+
+            if(BB != null)
+            {
+                BB.DamageBoss(2);
+                Destroy(gameObject);
+            }
+        }
+
         if(collider.tag == "Player" && isEnemyBullet)
         {
             GameManager.DamagePlayer(2);

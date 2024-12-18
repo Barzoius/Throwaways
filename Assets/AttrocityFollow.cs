@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class AttrocityFollow : StateMachineBehaviour
 {
 
@@ -9,6 +10,9 @@ public class AttrocityFollow : StateMachineBehaviour
     Rigidbody2D rigidbody;
 
     float speed = 2.5f;
+
+
+
 
     //OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

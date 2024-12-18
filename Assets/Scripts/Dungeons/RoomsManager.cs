@@ -207,7 +207,7 @@ public class RoomsManager : MonoBehaviour
                             door.doorCollider.SetActive(true); // activate doors
                         }
 
-                        // Skip enemy checks for the "End" room since the boss is present
+                        // Skip enemy checks cz the boss is present
                         continue;
                     }
                 }
