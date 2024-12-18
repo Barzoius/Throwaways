@@ -303,13 +303,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boss
       objectReference: {fileID: 0}
+    - target: {fileID: 1823127015784322351, guid: bc73f1084d60d8f4aab765b2f9243371, type: 3}
+      propertyPath: m_TagString
+      value: Boss
+      objectReference: {fileID: 0}
+    - target: {fileID: 6953278904405449322, guid: bc73f1084d60d8f4aab765b2f9243371, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6953278904405449322, guid: bc73f1084d60d8f4aab765b2f9243371, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6953278904405449322, guid: bc73f1084d60d8f4aab765b2f9243371, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 6953278904405449322, guid: bc73f1084d60d8f4aab765b2f9243371, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.53
+      value: -0.2
       objectReference: {fileID: 0}
     - target: {fileID: 6953278904405449322, guid: bc73f1084d60d8f4aab765b2f9243371, type: 3}
       propertyPath: m_LocalPosition.z
@@ -341,6 +353,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6953278904405449322, guid: bc73f1084d60d8f4aab765b2f9243371, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8428721048645773005, guid: bc73f1084d60d8f4aab765b2f9243371, type: 3}
+      propertyPath: bulletPrefab
+      value: 
+      objectReference: {fileID: 2601696495908737950, guid: 7a0961d3f2e424b4199aab5e8a072d18, type: 3}
+    - target: {fileID: 8428721048645773005, guid: bc73f1084d60d8f4aab765b2f9243371, type: 3}
+      propertyPath: playerPresent
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

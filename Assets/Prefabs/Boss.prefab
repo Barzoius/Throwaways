@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4939615277587105181}
   - component: {fileID: 4870675434080466357}
   - component: {fileID: 8428721048645773005}
+  - component: {fileID: 1965385201894546413}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Enemy
@@ -134,7 +135,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &8428721048645773005
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,4 +148,52 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48e9dcac68a68c64a9ad325ff559335c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bossState: 0
   playerPresent: 0
+  attackCD: 1
+  bulletPrefab: {fileID: 2601696495908737950, guid: 7a0961d3f2e424b4199aab5e8a072d18, type: 3}
+--- !u!61 &1965385201894546413
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1823127015784322351}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 2}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 10.8, y: 10.8}
+    newSize: {x: 10.8, y: 10.8}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 3, y: 3}
+  m_EdgeRadius: 0
