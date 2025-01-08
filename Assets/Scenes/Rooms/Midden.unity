@@ -2203,6 +2203,8 @@ MonoBehaviour:
   musicOffImage: {fileID: 21300000, guid: 4dae91a73f58741c88085eed9ba75fe3, type: 3}
   button: {fileID: 1224175831}
   audioSource: {fileID: 963194230}
+  bossmusic: {fileID: 8300000, guid: ead1d348097b34aaa96e8e601e49efec, type: 3}
+  mainTheme: {fileID: 8300000, guid: a7d28983e5ede4b9bac1235508cd4686, type: 3}
 --- !u!1 &1322665406
 GameObject:
   m_ObjectHideFlags: 0

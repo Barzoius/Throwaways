@@ -32,6 +32,7 @@ public class RoomsManager : MonoBehaviour
     bool hasChestRoom = false;
 
     bool updatedRooms = false;
+    private MusicManager audioManager;
 
     public bool CheckRoom(int x, int y)
     {
@@ -102,7 +103,7 @@ public class RoomsManager : MonoBehaviour
 
     void Start()
     {
-
+        audioManager=FindObjectOfType<MusicManager>();
     }
 
     void Awake()
@@ -200,6 +201,7 @@ public class RoomsManager : MonoBehaviour
                     BossBehaviour boss = froom.GetComponentInChildren<BossBehaviour>();
                     if (boss != null)
                     {
+                        audioManager.changeToBossMusic();
                         boss.playerPresent = true;
 
                         foreach (Door door in froom.GetComponentsInChildren<Door>())
