@@ -19,6 +19,8 @@ public class BossBehaviour : MonoBehaviour
     public BossState bossState = BossState.IDLE;
 
     public bool playerPresent = false;
+    private MusicManager audioManager;
+
 
     GameObject player;
     private Animator animator;
@@ -43,6 +45,8 @@ public class BossBehaviour : MonoBehaviour
         animator = this.GetComponent<Animator>();       
         animator.enabled = false;
         player = GameObject.FindGameObjectWithTag("Player");
+        audioManager=FindObjectOfType<MusicManager>();
+
     }
 
     // Update is called once per frame
@@ -120,6 +124,7 @@ public class BossBehaviour : MonoBehaviour
         RoomsManager.instance.StartCoroutine(RoomsManager.instance.RoomCoroutine());
         bossState = BossState.DIE;
         Destroy(gameObject);
+        audioManager.changeToMain();
     }
 
     public void DamageBoss(int dmg)
