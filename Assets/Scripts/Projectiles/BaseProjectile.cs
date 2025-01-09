@@ -19,7 +19,8 @@ public class BaseProjectile : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(DeleteDelay());
+        if(gameObject.activeSelf)
+            StartCoroutine(DeleteDelay());
 
         //if (!isEnemyBullet)
         //{
@@ -39,11 +40,15 @@ public class BaseProjectile : MonoBehaviour
             if(currentPos == lastPos)
             {
                 Destroy(gameObject);
+                //gameObject.SetActive(false);
             }
 
             lastPos = currentPos;
 
         }
+
+        if (gameObject.activeSelf)
+            StartCoroutine(DeleteDelay());
     }
 
     public void GetPlayer(Transform player)
@@ -56,7 +61,8 @@ public class BaseProjectile : MonoBehaviour
     {
         yield return new WaitForSeconds(lifeTime);
 
-        Destroy(gameObject);
+        //Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 
     void OnTriggerEnter2D(Collider2D collider)
@@ -69,7 +75,7 @@ public class BaseProjectile : MonoBehaviour
             if (enemyBehaviour != null)
             {
                 enemyBehaviour.Die();
-                Destroy(gameObject);
+                gameObject.SetActive(false);
             }
             else
             {
@@ -84,14 +90,29 @@ public class BaseProjectile : MonoBehaviour
             if(BB != null)
             {
                 BB.DamageBoss(2);
-                Destroy(gameObject);
+                gameObject.SetActive(false);
             }
         }
 
-        if(collider.tag == "Player" && isEnemyBullet)
+        if (collider.tag == "Wall")
+        {
+      
+           gameObject.SetActive(false);
+
+        }
+
+        if (collider.tag == "MidWallCollider")
+        {
+
+            gameObject.SetActive(false);
+
+        }
+
+        if (collider.tag == "Player" && isEnemyBullet)
         {
             GameManager.DamagePlayer(2);
             Destroy(gameObject);
+            //gameObject.SetActive(false);
         }
     }
 }

@@ -120,11 +120,97 @@ Returning to the actual rigidbody velocity, we interpolate between the current v
                                                 Time.deltaTime * smoothingFactor);
 ```
 
-|The result: |
-|---|
-|  ![](ResourcesMD/DanMovement.gif) | 
+The result: 
+
+<img src="ResourcesMD/DanMovement.gif" alt="Framework Diagram" style="width:100%;">
 
 # Shooting
+
+
+In order to optimize the shooting action an 
+object pooling pattern was used through a class Pool that
+has two main methods:
+
+The `Start()` method:
+
+```cs
+    void Start()
+    {
+        for(int i = 0; i < poolSize; i++)
+        {
+            GameObject obj = Instantiate(prefab);
+
+            Rigidbody2D rb = obj.AddComponent<Rigidbody2D>();
+            rb.gravityScale = 0;
+
+            obj.SetActive(false);
+
+
+            poolList.Add(obj);
+
+        }
+    }
+```
+Which fills the pool with projectile objects.
+
+And the `GetPooled()` method:
+
+```cs
+    public GameObject GetPooled()
+    {
+        for (int i = 0; i < poolList.Count; i++)
+        {
+            if (!poolList[i].activeInHierarchy) // not active
+            {
+                return poolList[i];
+            }
+        }
+
+        return null;
+    }
+```
+Which searches the pool for inactive objects. 
+In the case that it doesn't finds one it returns null. 
+We could have chose to create a new object and add it to the pool
+but because of the choice in pool size, bullet fire rate, 
+bullet speed and bullet delay the pool doesn't have time to activat all obejcts.
+
+The Shooting action itself:
+
+```cs
+
+    void Shoot(float x, float y)
+    {
+        Vector2 shootDirection = new Vector2(x, y).normalized;
+
+        // Offset the bullet starting position in the direction of shooting
+        Vector3 bulletStartPosition = transform.position + 
+                new Vector3(shootDirection.x, shootDirection.y, 0) * 0.5f;
+
+        GameObject bullet = Pool.instance.GetPooled();
+
+        if (bullet != null)
+        {
+            bullet.transform.position = bulletStartPosition;
+            bullet.transform.rotation = Quaternion.identity;
+
+            bullet.SetActive(true);
+
+            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+            rb.velocity = shootDirection * bulletSpeed;
+
+            int direction = (x > 0) ? 4 : (x < 0) ? 3 : (y > 0) ? 2 : 1;
+            animator.SetInteger("ShootDirection", direction);
+
+            StartCoroutine(ResetShootDirection());
+        }
+
+    }
+```
+The result: 
+
+<img src="ResourcesMD/shoot.gif" alt="Framework Diagram" style="width:100%;">
+
 
 
 # Map Generation
