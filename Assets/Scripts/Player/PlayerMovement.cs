@@ -97,21 +97,27 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector2 shootDirection = new Vector2(x, y).normalized;
 
-        // offset the bullet starting position in the direction of shooting
+        // Offset the bullet starting position in the direction of shooting
         Vector3 bulletStartPosition = transform.position + new Vector3(shootDirection.x, shootDirection.y, 0) * 0.5f;
 
-        GameObject bullet = Instantiate(bulletPrefab, bulletStartPosition, transform.rotation);
+        GameObject bullet = Pool.instance.GetPooled();
 
-        Rigidbody2D rb = bullet.AddComponent<Rigidbody2D>();
-        rb.gravityScale = 0;
+        if (bullet != null)
+        {
+            bullet.transform.position = bulletStartPosition;
+            bullet.transform.rotation = Quaternion.identity;
 
-        rb.velocity = shootDirection * bulletSpeed;
+            bullet.SetActive(true);
 
-        int direction = (x > 0) ? 4 : (x < 0) ? 3 : (y > 0) ? 2 : 1;
-        animator.SetInteger("ShootDirection", direction);
+            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+            rb.velocity = shootDirection * bulletSpeed;
 
+            int direction = (x > 0) ? 4 : (x < 0) ? 3 : (y > 0) ? 2 : 1;
+            animator.SetInteger("ShootDirection", direction);
 
-        StartCoroutine(ResetShootDirection());
+            StartCoroutine(ResetShootDirection());
+        }
+
     }
 
 
