@@ -13,9 +13,34 @@ public class MusicManager : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip bossmusic;
     public AudioClip mainTheme;
+
+    [SerializeField] Slider volumeSlider;
+
+    void Awake()
+    {
+        if (!PlayerPrefs.HasKey("volume"))
+        {
+            PlayerPrefs.SetFloat("volume", 1f);
+            Load();
+        }
+        else
+        {
+            Load();
+        }
+    }
     void Start()
     {
         musicOnImage=button.image.sprite;
+
+        if (!PlayerPrefs.HasKey("volume"))
+        {
+            PlayerPrefs.SetFloat("volume", 1f);
+            Load();
+        }
+        else
+        {
+            Load();
+        }
     }
 
     // Update is called once per frame
@@ -49,5 +74,22 @@ public class MusicManager : MonoBehaviour
 
     public void changeToMain(){
         changeMusic(mainTheme);
+    }
+
+    public void changeVolume()
+    {
+        audioSource.volume = volumeSlider.value;
+        Save();
+    }
+
+    private void Load()
+    {
+        audioSource.volume = PlayerPrefs.GetFloat("volume");
+        volumeSlider.value = PlayerPrefs.GetFloat("volume");
+    }
+
+    private void Save()
+    {
+        PlayerPrefs.SetFloat("volume", audioSource.volume);
     }
 }
