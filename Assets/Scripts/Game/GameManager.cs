@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
 
     public TMP_Text textHP;
 
-    public static int currentHP = 10;
+    public static int currentHP;
     private static int maxHP = 10;
 
     private static float baseMS = 5.0f;
@@ -38,6 +38,7 @@ public class GameManager : MonoBehaviour
     {
         if (sInstance == null)
         {
+            currentHP = 10;
             sInstance = this;
         }
 
