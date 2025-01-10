@@ -7,7 +7,9 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
     public static GameManager sInstance;
-    
+
+    private static DeadMenu deadMenu;
+
     public TMP_Text textHP;
 
     public static int currentHP = 10;
@@ -38,12 +40,18 @@ public class GameManager : MonoBehaviour
         {
             sInstance = this;
         }
+
     }
 
 
     void Update()
     {
         textHP.text = "HP: " + currentHP;
+    }
+
+    void Start()
+    {
+        deadMenu = FindObjectOfType<DeadMenu>();
     }
 
 
@@ -60,7 +68,11 @@ public class GameManager : MonoBehaviour
 
     private static void KillPlayer()
     {
-
+        deadMenu.ShowYouDiedMenu();
+    }
+    private static void WinGame()
+    {
+        deadMenu.ShowYouWonMenu();
     }
 
     public static void HealPlayer(int hp)
