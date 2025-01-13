@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Unity.VisualScripting;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,8 +13,10 @@ public class GameManager : MonoBehaviour
 
     public TMP_Text textHP;
 
+
+
     public static int currentHP;
-    private static int maxHP = 10;
+    private static int maxHP = 100;
 
     private static float baseMS = 5.0f;
     public static float currentMS = baseMS;
@@ -38,7 +41,7 @@ public class GameManager : MonoBehaviour
     {
         if (sInstance == null)
         {
-            currentHP = 10;
+            currentHP = 100;
             sInstance = this;
         }
 
@@ -71,7 +74,7 @@ public class GameManager : MonoBehaviour
     {
         deadMenu.ShowYouDiedMenu();
     }
-    private static void WinGame()
+    public static void WinGame()
     {
         deadMenu.ShowYouWonMenu();
     }
