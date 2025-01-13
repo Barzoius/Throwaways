@@ -40,7 +40,7 @@ public class DeadMenu : MonoBehaviour
         Time.timeScale = 1f;
         GameIsPaused = false;
 
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(0);
     }
 
     public void ShowYouDiedMenu()
