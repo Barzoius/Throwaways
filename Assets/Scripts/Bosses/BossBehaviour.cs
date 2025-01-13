@@ -32,7 +32,7 @@ public class BossBehaviour : MonoBehaviour
 
     float bulletSpeed = 10.0f;
 
-    int hp = 10;
+    public int hp = 10;
 
     [SerializeField]
     private float attackCD = 1.0f;
@@ -125,6 +125,8 @@ public class BossBehaviour : MonoBehaviour
         bossState = BossState.DIE;
         Destroy(gameObject);
         audioManager.changeToMain();
+
+        GameManager.WinGame();
     }
 
     public void DamageBoss(int dmg)
