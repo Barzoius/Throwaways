@@ -30,7 +30,8 @@ public class MusicManager : MonoBehaviour
     }
     void Start()
     {
-        musicOnImage=button.image.sprite;
+        if(musicOnImage != null)
+            musicOnImage=button.image.sprite;
 
         if (!PlayerPrefs.HasKey("volume"))
         {
@@ -85,7 +86,9 @@ public class MusicManager : MonoBehaviour
     private void Load()
     {
         audioSource.volume = PlayerPrefs.GetFloat("volume");
-        volumeSlider.value = PlayerPrefs.GetFloat("volume");
+
+        if(volumeSlider != null)
+            volumeSlider.value = PlayerPrefs.GetFloat("volume");
     }
 
     private void Save()

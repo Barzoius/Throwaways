@@ -41,9 +41,9 @@ public class ItemSpawner : MonoBehaviour
             cumulativeWeight += items[chosenIndex].weight;
         }
 
-        Instantiate(items[chosenIndex].go,
-                                   transform.position,
-                                   Quaternion.identity) ;
+       // Instantiate(items[chosenIndex].go,
+       //                            transform.position,
+       //                            Quaternion.identity) ;
     }
 
 
