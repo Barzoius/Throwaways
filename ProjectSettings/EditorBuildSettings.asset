@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Main Menu.unity
+    guid: 9eba8f2e517e41747ae7797bde174c3d
+  - enabled: 1
     path: Assets/Scenes/Rooms/MiddenStart.unity
     guid: cf83a3de2b8ca1f4e9b03579eec2f926
   - enabled: 1
@@ -14,9 +17,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Rooms/MiddenEnd.unity
     guid: 13b8af8dc61f20942a2cbbe79c7e9fc4
-  - enabled: 1
-    path: Assets/Scenes/Main Menu.unity
-    guid: 9eba8f2e517e41747ae7797bde174c3d
   - enabled: 1
     path: Assets/Scenes/Rooms/Midden.unity
     guid: bb17d40be29d8fd4694e0cd2420e1a06

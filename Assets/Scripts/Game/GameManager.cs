@@ -14,10 +14,9 @@ public class GameManager : MonoBehaviour
     public TMP_Text textHP;
 
 
-    private BossBehaviour boss;
 
     public static int currentHP;
-    private static int maxHP = 10;
+    private static int maxHP = 100;
 
     private static float baseMS = 5.0f;
     public static float currentMS = baseMS;
@@ -42,7 +41,7 @@ public class GameManager : MonoBehaviour
     {
         if (sInstance == null)
         {
-            currentHP = 10;
+            currentHP = 100;
             sInstance = this;
         }
 
@@ -56,7 +55,6 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        boss = FindObjectOfType<BossBehaviour>();
         deadMenu = FindObjectOfType<DeadMenu>();
     }
 

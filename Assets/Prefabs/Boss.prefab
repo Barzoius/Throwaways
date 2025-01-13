@@ -150,6 +150,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bossState: 0
   playerPresent: 0
+  hp: 10
   attackCD: 1
   bulletPrefab: {fileID: 2601696495908737950, guid: 7a0961d3f2e424b4199aab5e8a072d18, type: 3}
 --- !u!61 &1965385201894546413
@@ -184,7 +185,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 2}
+  m_Offset: {x: -0.0144735575, y: 1.7032971}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -195,5 +196,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3, y: 3}
+  m_Size: {x: 1.3789926, y: 1.6539854}
   m_EdgeRadius: 0
