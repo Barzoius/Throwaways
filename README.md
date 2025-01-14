@@ -32,13 +32,11 @@ where players explore
 
 -------------------------------
 
-## Observatii:
-EDITOR VERSION: 2022.3.40f1<br />
-Trebuie sa selectati Main Menu din Assets>Scenes<br />
-Am atasat si un video demo pentru sprinturi in folderul Rapoarte
+## Build:
+UNITY EDITOR VERSION: 2022.3.40f1<br />
 
--------------------------------
-## Trimiteti raportul la adresa: mecca.rares@gmail.com.
+The game demo can be played in browser here: https://barzoius.itch.io/throwaways<br />
+You will need this password: throwaways
 
 
 ## Technical Contents
@@ -214,3 +212,28 @@ The result:
 
 
 # Map Generation
+
+
+## Credits
+
+### Authors
+
+Ghinea Theodor Traian - UI
+<br />
+Moisel Rares-Ioan - Gamplay & Art
+<br />
+Bretfelean Rares - Audio
+
+### Assets
+
+Chests - https://cmski.itch.io/tabletop-chests
+<br />
+Doors - https://steamcommunity.com/id/snoochSDK/
+<br />
+Speed/Health items -
+<br />
+Bat enemy(modifed) -
+
+-The rest of the assets were done by us-
+
+
