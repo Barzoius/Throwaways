@@ -57,6 +57,9 @@ TagManager:
   - name: WALLS
     uniqueID: 2439112317
     locked: 0
+  - name: CHESTS
+    uniqueID: 2639684035
+    locked: 0
   - name: PLAYER
     uniqueID: 3495250423
     locked: 0
