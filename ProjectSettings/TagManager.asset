@@ -63,3 +63,6 @@ TagManager:
   - name: PLAYER
     uniqueID: 3495250423
     locked: 0
+  - name: Boxx
+    uniqueID: 2010056241
+    locked: 0
