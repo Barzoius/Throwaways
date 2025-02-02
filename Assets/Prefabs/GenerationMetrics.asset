@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: GenerationMetrics
   m_EditorClassIdentifier: 
   numCrawlers: 2
-  minIteration: 7
-  maxIteration: 15
+  minIteration: 5
+  maxIteration: 7
